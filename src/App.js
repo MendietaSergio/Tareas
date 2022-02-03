@@ -1,4 +1,6 @@
 import React, { useEffect, useReducer } from "react";
+import { Form } from "./components/Form";
+import { ListaTareas } from "./components/ListaTareas";
 import useForm from "./hooks/useForm";
 import { tareasReducer } from "./reducers/tareasReducer";
 
@@ -38,7 +40,7 @@ function App() {
     if (descripcion.trim().length < 1) {
       return;
     }
-
+    
     const nuevaTarea = {
       id: new Date().getTime(),
       descripcion,
@@ -68,39 +70,18 @@ function App() {
       <div className="row">
         <div className="col-7">
           <ul className="list-grop list-group-flush px-4">
-            {tareas.map(({ descripcion, terminado, id }, i) => (
-              <li
-                key={descripcion + i}
-                className="d-flex justify-content-between align-items-center"
-              >
-                <p>
-                  {i + 1}. {descripcion}
-                </p>
-                <button
-                  onClick={() => handleDelete(id)}
-                  className="btn btn-sm btn-danger mb-1"
-                >
-                  <i className="fas fa-trash-alt"></i>
-                </button>
-              </li>
-            ))}
+            <ListaTareas 
+              tareas={tareas}
+              handleDelete={handleDelete}
+            />
           </ul>
         </div>
         <div className="col-5">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="descripcion"
-              pladeholder="Aprender qué...."
-              autoComplete="off"
-              className="from-control"
-              onChange={handleInputChange}
-              value={descripcion}
-            />
-            <button type="submit" className=" btn btn-primary w-100 mt-2">
-              Agregar
-            </button>
-          </form>
+          <Form 
+            handleSubmit={handleSubmit}
+            handleInputChange={handleInputChange}
+            descripcion={descripcion}
+          />
         </div>
       </div>
     </div>
