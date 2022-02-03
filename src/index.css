@@ -4,3 +4,6 @@ body {
 p {
   cursor: pointer;
 }
+p:active {
+  text-decoration: line-through;
+}
