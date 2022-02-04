@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { Form } from "./components/Form";
 import { ListaTareas } from "./components/ListaTareas";
 import useForm from "./hooks/useForm";
@@ -22,6 +22,7 @@ const init = () => {
   return JSON.parse(localStorage.getItem("tareas")) || [];
 };
 function App() {
+
   //dispatch= funcion que dispara las funciones
   const [tareas, dispatch] = useReducer(tareasReducer, [], init);
 
@@ -34,6 +35,11 @@ function App() {
   useEffect(() => {
     localStorage.setItem("tareas", JSON.stringify(tareas));
   }, [tareas]); //cuando cambia se ejecuta
+
+  const [btnAgregar, setBtnAgregar] = useState(false)
+  useEffect(() => {
+    console.log("cambio el estado de btnAgregar ", btnAgregar);
+  }, [btnAgregar]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -68,28 +74,73 @@ function App() {
     };
     dispatch(cambiarEstado);
   };
+
+  const btnAdd = () => {
+    console.log(btnAgregar);
+    btnAgregar = !btnAgregar
+    console.log(btnAgregar);
+  }
+
   return (
     <div className="App">
-      <h1>Tareas APP</h1>
-      <hr />
-      <h4>Total tareas: {tareas.length}</h4>
+      <h1 className="text-center">Tus tareas</h1>
       <hr />
       <div className="row">
-        <div className="col-7">
+
+        <div className="col-6">
+          <h4 className="mx-5">Total tareas: {tareas.length}</h4>
+        </div>
+        <div className="col-6">
+          {btnAgregar ?
+            (null
+            )
+            :
+            (
+              <div
+                className="d-flex justify-content-end">
+                <div
+                  onClick={() => setBtnAgregar(!btnAgregar)}
+                  className="btn btn-success">
+                  <i className="fas fa-plus"></i>
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </div>
+      <hr />
+      <div className="row">
+        <div className={btnAgregar ? "col-7":'col-12'}>
           <ul className="list-grop list-group-flush px-4">
-            <ListaTareas 
-            tareas={tareas}
-            handleDelete={handleDelete}
-            handleComplete={handleComplete}
+            <ListaTareas
+              tareas={tareas}
+              handleDelete={handleDelete}
+              handleComplete={handleComplete}
             />
           </ul>
         </div>
-        <div className="col-5">
-          <Form
-            handleSubmit={handleSubmit}
-            handleInputChange={handleInputChange}
-            descripcion={descripcion}
-          />
+        <div div className={btnAgregar ? "col-5":null}>
+          {btnAgregar ?
+            (
+              <div>
+                <div
+                  className="d-flex justify-content-end">
+                  <div
+                    onClick={() => setBtnAgregar(!btnAgregar)}
+                    className="btn btn-danger my-2">
+                    <i className="fas fa-times"></i>
+                  </div>
+                </div>
+                <Form
+                  handleSubmit={handleSubmit}
+                  handleInputChange={handleInputChange}
+                  descripcion={descripcion}
+                />
+              </div>
+            )
+            :
+            (null)
+          }
         </div>
       </div>
     </div>
