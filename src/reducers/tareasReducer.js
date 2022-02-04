@@ -1,5 +1,8 @@
-export const tareasReducer = (state = [], action) => {
+export const tareasReducer = (state = [], action, btnAdd) => {
   switch (action?.type) {
+    case "btnAdd":
+      console.log("btnAdd");
+      return !btnAdd;
     case "agregar":
       //AGREGAR ELEMENTOS AL ARRAY
       return [...state, action.payload]; //+ elemento agregado
@@ -11,6 +14,7 @@ export const tareasReducer = (state = [], action) => {
           ? { ...tarea, terminado: !tarea.terminado }
           : tarea
       );
+
     default:
       return state;
   }
