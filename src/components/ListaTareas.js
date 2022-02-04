@@ -3,6 +3,7 @@ import React from "react";
 export const ListaTareas = ({ tareas, handleDelete, handleComplete }) => {
   return (
     <div>
+      {console.log("lista tareas")}
       {tareas.map(({ descripcion, terminado, id }, i) => (
         
         <li
@@ -10,9 +11,9 @@ export const ListaTareas = ({ tareas, handleDelete, handleComplete }) => {
         className="d-flex justify-content-between align-items-center"
         >
           <p onClick={() => handleComplete(id)}>
-            {i + 1}. 
-            <span className={terminado ? "text-decoration-line-through" : ""}>
-              {" "+descripcion}
+            {i + 1}.{" "} 
+            <span className={terminado ? "color text-decoration-line-through" : ""}>
+              {descripcion}
             </span>
           </p>
           <button
