@@ -40,11 +40,11 @@ function App() {
     if (descripcion.trim().length < 1) {
       return;
     }
-    
+
     const nuevaTarea = {
       id: new Date().getTime(),
       descripcion,
-      completada: false,
+      terminado: false,
     };
 
     const agregarTarea = {
@@ -61,6 +61,13 @@ function App() {
     };
     dispatch(borrarTarea);
   };
+  const handleComplete = (id) => {
+    const cambiarEstado = {
+      type: "estado",
+      payload: id,
+    };
+    dispatch(cambiarEstado);
+  };
   return (
     <div className="App">
       <h1>Tareas APP</h1>
@@ -71,13 +78,14 @@ function App() {
         <div className="col-7">
           <ul className="list-grop list-group-flush px-4">
             <ListaTareas 
-              tareas={tareas}
-              handleDelete={handleDelete}
+            tareas={tareas}
+            handleDelete={handleDelete}
+            handleComplete={handleComplete}
             />
           </ul>
         </div>
         <div className="col-5">
-          <Form 
+          <Form
             handleSubmit={handleSubmit}
             handleInputChange={handleInputChange}
             descripcion={descripcion}
