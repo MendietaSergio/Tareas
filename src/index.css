@@ -1,6 +1,14 @@
 body {
   padding: 70px;
 }
+
 p {
   cursor: pointer;
+}
+
+.color {
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  transition       : 1000ms linear;
+  background-color : #00FF00;
 }
