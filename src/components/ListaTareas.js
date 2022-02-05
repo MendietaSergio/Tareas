@@ -1,28 +1,18 @@
 import React from "react";
+import {ItemLista} from './ItemLista'
 
 export const ListaTareas = ({ tareas, handleDelete, handleComplete }) => {
   return (
     <div>
       {console.log("lista tareas")}
-      {tareas.map(({ descripcion, terminado, id }, i) => (
+      {tareas.map((tareas, i) => (
         
-        <li
-        key={descripcion + i}
-        className="d-flex justify-content-between align-items-center"
-        >
-          <p onClick={() => handleComplete(id)}>
-            {i + 1}.{" "} 
-            <span className={terminado ? "color text-decoration-line-through" : ""}>
-              {descripcion}
-            </span>
-          </p>
-          <button
-            onClick={() => handleDelete(id)}
-            className="btn btn-sm btn-danger mb-1"
-          >
-            <i className="fas fa-trash-alt"></i>
-          </button>
-        </li>
+        <ItemLista
+          tareas={tareas}
+          i={i}
+          handleDelete={handleDelete}
+          handleComplete={handleComplete}
+        />
       ))}
     </div>
   );
