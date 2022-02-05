@@ -12,3 +12,8 @@ p {
   transition       : 1000ms linear;
   background-color : #00FF00;
 }
+.separador{
+  /* align :"center", */
+  width: 200px;
+  margin: 0 auto;
+}
