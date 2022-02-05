@@ -1,12 +1,9 @@
 import React from 'react'
 
-export const Title = ({title,subTitle}) => {
+export const Title = ({title, className}) => {
     return (
         <div>
-            <h1 className='text-left'>{title}</h1>
-            <div className='text-center text-uppercase my-3'>
-            <span>{subTitle}</span>
-            </div>
+            <h1 className={className}>{title}</h1>
         </div>
     )
 }
