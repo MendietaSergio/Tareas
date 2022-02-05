@@ -110,31 +110,34 @@ function App() {
       {/* termina subtitulo */}
       <div className="row">
         {tareas.length != 0 ? (
-          <div className={btnAgregar ? "col-7" : "col-12"}>
-            <ul className="list-grop list-group-flush px-4">
-              <ListaTareas
-                tareas={tareas}
-                handleDelete={handleDelete}
-                handleComplete={handleComplete}
-              />
-            </ul>
+          <div
+            className={
+              btnAgregar
+                ? "col-7"
+                : "row h-100 align-items-center justify-content-center"
+            }
+          >
+            <div className={btnAgregar ?  null:"col-6 bg-light"}>
+              <ul className="list-grop list-group-flush px-4">
+                <ListaTareas
+                  tareas={tareas}
+                  handleDelete={handleDelete}
+                  handleComplete={handleComplete}
+                />
+              </ul>
+            </div>
           </div>
         ) : (
-          
-            <div className="row h-100 align-items-center justify-content-center">
-              <div className={tareas.length === 0 ? "col-auto bg-light" : null}>
-                <Title
-                title="No hay tareas"
-                subTitle="¡ Crea una nueva !"
-                />
-                <Form
-                  handleSubmit={handleSubmit}
-                  handleInputChange={handleInputChange}
-                  descripcion={descripcion}
-                />
-              </div>
+          <div className="row h-100 align-items-center justify-content-center">
+            <div className={tareas.length === 0 ? "col-6 bg-light" : null}>
+              <Title title="¡ Crea una tarea !" typeTitle="subTitulo" className="font-weight-bold  text-center my-3"/>
+              <Form
+                handleSubmit={handleSubmit}
+                handleInputChange={handleInputChange}
+                descripcion={descripcion}
+              />
             </div>
-          
+          </div>
         )}
         <div div className={btnAgregar ? "col-5" : null}>
           {btnAgregar ? (
