@@ -83,30 +83,37 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-center">Tus tareas</h1>
-      <hr />
-      <div className="row">
-        <div className="col-6">
-          <h4 className="mx-5">Total tareas: {tareas.length}</h4>
-        </div>
-        {tareas.length != 0 ? (
-          <>
-            <div className="col-6">
-              {btnAgregar ? null : (
-                <div className="d-flex justify-content-end">
-                  <div
-                    onClick={() => setBtnAgregar(!btnAgregar)}
-                    className="btn btn-success"
-                  >
-                    <i className="fas fa-plus"></i>
-                  </div>
-                </div>
-              )}
-            </div>
-          </>
-        ) : null}
+      <Title className="text-center" title="Tus Tareas" />
+      <div className="mb-5">
+      <hr className="separador" />
       </div>
-      <hr />
+
+      {tareas.length === 0 ? null : (
+        <>
+          <div className="row">
+            <div className="col-6">
+              <h4 className="mx-5">Total tareas: {tareas.length}</h4>
+            </div>
+            {tareas.length != 0 ? (
+              <>
+                <div className="col-6">
+                  {btnAgregar ? null : (
+                    <div className="d-flex justify-content-end">
+                      <div
+                        onClick={() => setBtnAgregar(!btnAgregar)}
+                        className="btn btn-success"
+                      >
+                        <i className="fas fa-plus"></i>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </>
+            ) : null}
+          </div>
+          <hr />
+        </>
+      )}
       {/* termina subtitulo */}
       <div className="row">
         {tareas.length != 0 ? (
@@ -117,7 +124,7 @@ function App() {
                 : "row h-100 align-items-center justify-content-center"
             }
           >
-            <div className={btnAgregar ?  null:"col-6 bg-light"}>
+            <div className={btnAgregar ? null : "col-6 bg-light"}>
               <ul className="list-grop list-group-flush px-4">
                 <ListaTareas
                   tareas={tareas}
@@ -130,7 +137,11 @@ function App() {
         ) : (
           <div className="row h-100 align-items-center justify-content-center">
             <div className={tareas.length === 0 ? "col-6 bg-light" : null}>
-              <Title title="¡ Crea una tarea !" typeTitle="subTitulo" className="font-weight-bold  text-center my-3"/>
+              <Title
+                title="¡ Crea una tarea !"
+                typeTitle="subTitulo"
+                className="font-weight-bold  text-center my-3"
+              />
               <Form
                 handleSubmit={handleSubmit}
                 handleInputChange={handleInputChange}
