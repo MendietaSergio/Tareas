@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ItemLista = ({ tareas:{descripcion, terminado, id}, i, handleDelete, handleComplete }) => {
+export const ItemLista = ({ tareas:{descripcion, terminado, id}, i, handleDelete, handleComplete, changeColor }) => {
     return (
         <li
         key={descripcion + i}
@@ -8,7 +8,7 @@ export const ItemLista = ({ tareas:{descripcion, terminado, id}, i, handleDelete
         >
           <p onClick={() => handleComplete(id)}>
             {i + 1}.{" "} 
-            <span className={terminado ? "color text-decoration-line-through" : ""}>
+            <span className={terminado ? (`${changeColor} text-decoration-line-through`) : ""}>
               {descripcion}
             </span>
           </p>
