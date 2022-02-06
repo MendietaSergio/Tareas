@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer, useState } from "react";
 import { Form } from "./components/Form";
+import { HighLighters } from "./components/HighLighters";
 import { ListaTareas } from "./components/ListaTareas";
 import { Title } from "./components/Title";
 import useForm from "./hooks/useForm";
@@ -41,6 +42,8 @@ function App() {
     console.log("cambio el estado de btnAgregar ", btnAgregar);
   }, [btnAgregar]);
 
+  const [changeColor, setChangeColor] = useState("color");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (descripcion.trim().length < 1) {
@@ -75,19 +78,19 @@ function App() {
     dispatch(cambiarEstado);
   };
 
-  const btnAdd = () => {
-    console.log(btnAgregar);
-    btnAgregar = !btnAgregar;
-    console.log(btnAgregar);
-  };
-
   return (
     <div className="App">
-      <Title className="text-center" title="Tus Tareas" />
-      <div className="mb-5">
-      <hr className="separador" />
+      <div className="row mx-5">
+        <div className="col-6 d-flex ">
+          <div className="col-12">
+            <Title className="text-center" title="Tus Tareas" />
+          </div>
+          <HighLighters
+            setChangeColor={setChangeColor}
+            changeColor={changeColor}
+          />
+        </div>
       </div>
-
       {tareas.length === 0 ? null : (
         <>
           <div className="row">
@@ -130,6 +133,7 @@ function App() {
                   tareas={tareas}
                   handleDelete={handleDelete}
                   handleComplete={handleComplete}
+                  changeColor={changeColor}
                 />
               </ul>
             </div>
