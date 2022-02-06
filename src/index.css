@@ -7,13 +7,72 @@ p {
 }
 
 .color {
-  background-size: 0 100%;
+  background-size  : 0 100%;
   background-repeat: no-repeat;
   transition       : 1000ms linear;
   background-color : #00FF00;
 }
-.separador{
-  /* align :"center", */
-  width: 200px;
-  margin: 0 auto;
+
+.logos_highLighter {
+  width : 25px;
+  height: 25px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.iconhighlighters {
+  width : 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.container_colores {
+  /* background-color: #f5a871; */
+  width           : auto;
+  height          : max-content;
+  z-index         : 9999999;
+  top          : 50px;
+  position        : relative;
+  right           : 200px;
+  /* transition: 20s; */
+
+}
+.prueba{
+  transition: width 2s;
+}
+.color1{
+  background-color: #ffbb00;
+  background-size  : 0 100%;
+  background-repeat: no-repeat;
+  transition       : 1000ms linear;
+}
+.color2{
+  background-color: #ff58a4;
+  background-size  : 0 100%;
+  background-repeat: no-repeat;
+  transition       : 1000ms linear;
+}
+.color3{
+  background-color: #0096dd;
+  background-size  : 0 100%;
+  background-repeat: no-repeat;
+  transition       : 1000ms linear;
+}
+.color4{
+  background-color: #ff8304;
+  background-size  : 0 100%;
+  background-repeat: no-repeat;
+  transition       : 1000ms linear;
+}
+.color5{
+  background-color: #00bc39;
+  background-size  : 0 100%;
+  background-repeat: no-repeat;
+  transition       : 1000ms linear;
+}
+.color6{
+  background-color: #aa2293;
+  background-size  : 0 100%;
+  background-repeat: no-repeat;
+  transition       : 1000ms linear;
 }
