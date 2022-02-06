@@ -1,13 +1,17 @@
 import React from "react";
-import {ItemLista} from './ItemLista'
+import { ItemLista } from "./ItemLista";
 
-export const ListaTareas = ({ tareas, handleDelete, handleComplete }) => {
+export const ListaTareas = ({
+  tareas,
+  handleDelete,
+  handleComplete,
+  changeColor,
+}) => {
   return (
     <div>
-      {console.log("lista tareas")}
       {tareas.map((tareas, i) => (
-        
         <ItemLista
+          changeColor={changeColor}
           tareas={tareas}
           i={i}
           handleDelete={handleDelete}
