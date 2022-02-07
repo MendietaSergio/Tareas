@@ -17,7 +17,7 @@ export const Form = ({ handleSubmit, handleInputChange, descripcion }) => {
                 />
             </div>
             <Button
-                className=" btn btn-primary w-100 mt-2"
+                className=" btn btn-primary w-100 mt-2 mb-4"
                 text="Agregar"
             />
         </form>
