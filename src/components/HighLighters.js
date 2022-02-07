@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { highLighters } from "../mock/highlighters";
 import iconHighLighters from "../img/icon_highlighters.png";
+
 export const HighLighters = ({setChangeColor, changeColor}) => {
   const [showHighLighters, setShowHighLighters] = useState(false);
 
@@ -26,7 +27,7 @@ export const HighLighters = ({setChangeColor, changeColor}) => {
                 <div key={highLighter.id} className={`background${highLighter.id}`}>
                   <img
                     src={highLighter.img}
-                    title={highLighter.img}
+                    title={"Resaltador"}
                     className="logos_highLighter"
                     onClick={() => handleSelect(highLighter.color)}
                   />
