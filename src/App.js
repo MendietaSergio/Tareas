@@ -39,7 +39,6 @@ function App() {
 
   const [btnAgregar, setBtnAgregar] = useState(false);
   useEffect(() => {
-    console.log("cambio el estado de btnAgregar ", btnAgregar);
   }, [btnAgregar]);
 
   const [changeColor, setChangeColor] = useState("color");
@@ -154,7 +153,9 @@ function App() {
             </div>
           </div>
         )}
-        <div div className={btnAgregar ? "col-5" : null}>
+        {tareas.length != 0 ? (
+
+        <div className={btnAgregar ? "col-5" : null}>
           {btnAgregar ? (
             <div>
               <div className="d-flex justify-content-end">
@@ -173,6 +174,8 @@ function App() {
             </div>
           ) : null}
         </div>
+        ) : (null)}
+
       </div>
     </div>
   );
