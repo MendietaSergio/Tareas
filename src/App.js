@@ -96,7 +96,7 @@ function App() {
             <div className="col-6">
               <h4 className="mx-5">Total tareas: {tareas.length}</h4>
             </div>
-            {tareas.length != 0 ? (
+            {tareas.length !== 0 ? (
               <>
                 <div className="col-6">
                   {btnAgregar ? null : (
@@ -118,7 +118,7 @@ function App() {
       )}
       {/* termina subtitulo */}
       <div className="row">
-        {tareas.length != 0 ? (
+        {tareas.length !== 0 ? (
           <div
             className={
               btnAgregar
@@ -153,7 +153,7 @@ function App() {
             </div>
           </div>
         )}
-        {tareas.length != 0 ? (
+        {tareas.length !== 0 ? (
 
         <div className={btnAgregar ? "col-5" : null}>
           {btnAgregar ? (
