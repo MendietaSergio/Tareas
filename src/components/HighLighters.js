@@ -15,6 +15,7 @@ export const HighLighters = ({setChangeColor, changeColor}) => {
         <img
           src={iconHighLighters}
           title="Paleta de colores"
+          alt="Paleta de colores"
           className="iconhighlighters"
           onClick={() => setShowHighLighters(!showHighLighters)}
         />
