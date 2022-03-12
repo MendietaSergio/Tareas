@@ -8,9 +8,9 @@ export const ListaTareas = ({
   changeColor,
 }) => {
   return (
-    <div>
+    <>
       {tareas.map((tareas, i) => (
-        <ItemLista
+        <ItemLista key={i}
           changeColor={changeColor}
           tareas={tareas}
           i={i}
@@ -18,6 +18,7 @@ export const ListaTareas = ({
           handleComplete={handleComplete}
         />
       ))}
-    </div>
+    </>
+
   );
 };

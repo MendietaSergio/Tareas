@@ -4,7 +4,7 @@ import { Button } from './Button';
 export const Form = ({ handleSubmit, handleInputChange, descripcion }) => {
     return <div>
         <form onSubmit={handleSubmit}>
-            <div class="form-group">
+            <div className="form-group">
                 <input
                     id="label-tarea"
                     type="text"
